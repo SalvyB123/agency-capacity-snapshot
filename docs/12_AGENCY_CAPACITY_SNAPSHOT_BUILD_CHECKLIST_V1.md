@@ -24,6 +24,32 @@ A user can log in to a live deployed app.
 
 ---
 
+## CI & Quality Gates (Applies to All Phases)
+
+**Objective:** Prevent broken or unverified changes reaching `main`.
+
+- [ ] GitHub Actions workflow configured for this repository
+- [ ] CI runs automatically on every pull request to `main`
+- [ ] CI includes:
+  - [ ] Linting
+  - [ ] Type checking (where applicable)
+  - [ ] Backend tests
+  - [ ] Frontend tests
+  - [ ] Production build
+- [ ] Cypress E2E tests added once meaningful UI flows exist
+- [ ] Cypress tests run locally before being relied on in CI
+- [ ] Pull requests are not merged with failing checks
+
+**Rules:**
+- Local testing is mandatory before opening a PR  
+- CI exists to catch regressions, not replace local responsibility  
+- If tests only pass in CI but not locally, the work is not complete  
+
+**Exit criteria:**  
+Any change merged to `main` has been verified locally and validated by CI.
+
+---
+
 ## Phase B — Authentication & Security
 
 **Objective:** Ensure safe, scoped access from day one.
